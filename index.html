@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MachinaPulse AI - Industrial SaaS Control Center</title>
+    <!-- Tailwind CSS for modern enterprise styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js for real-time telemetry analytics -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen flex flex-col">
+
+    <!-- Top Navigation Bar -->
+    <header class="bg-slate-900 border-b border-slate-800 px-6 py-4 flex items-center justify-between shadow-lg">
+        <div class="flex items-center space-x-3">
+            <div class="bg-indigo-600 p-2.5 rounded-xl shadow-md shadow-indigo-500/30">
+                <i class="fa-solid fa-microchip text-white text-xl"></i>
+            </div>
+            <div>
+                <h1 class="text-xl font-black tracking-wider text-white uppercase">MachinaPulse <span class="text-indigo-400">AI</span></h1>
+                <p class="text-xs text-slate-400 font-medium">Autonomous Industrial Operations & Multi-Agent Ecosystem</p>
+            </div>
+        </div>
+        <div class="flex items-center space-x-4">
+            <span class="flex items-center space-x-2 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3 py-1.5 rounded-full text-xs font-semibold">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>5/5 Agents Active (24/7 Live)</span>
+            </span>
+            <div class="bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700 text-xs text-slate-300 font-mono">
+                Coimbatore Hub: <span class="text-indigo-400 font-bold">ONLINE</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Dashboard Container -->
+    <main class="flex-1 p-6 max-w-7xl mx-auto w-full space-y-6">
+
+        <!-- Metrics Overview Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+            <!-- Card 1 -->
+            <div class="bg-slate-900/80 border border-slate-800 p-4 rounded-xl shadow-lg">
+                <div class="flex justify-between items-start">
+                    <p class="text-xs font-semibold text-slate-400 uppercase">Agent 1: Maintenance</p>
+                    <i class="fa-solid fa-gears text-indigo-400"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mt-2">Optimal</h3>
+                <p class="text-xs text-amber-400 mt-1">⚠️ 1 Loom Alert</p>
+            </div>
+            <!-- Card 2 -->
+            <div class="bg-slate-900/80 border border-slate-800 p-4 rounded-xl shadow-lg">
+                <div class="flex justify-between items-start">
+                    <p class="text-xs font-semibold text-slate-400 uppercase">Agent 2: Quality</p>
+                    <i class="fa-solid fa-eye text-emerald-400"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mt-2">98.2%</h3>
+                <p class="text-xs text-emerald-400 mt-1">✅ Pass Rate High</p>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-slate-900/80 border border-slate-800 p-4 rounded-xl shadow-lg">
+                <div class="flex justify-between items-start">
+                    <p class="text-xs font-semibold text-slate-400 uppercase">Agent 3: Supply Chain</p>
+                    <i class="fa-solid fa-boxes-stacked text-blue-400"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mt-2">Restocking</h3>
+                <p class="text-xs text-blue-400 mt-1">📦 Spare Belts Ordered</p>
+            </div>
+            <!-- Card 4 -->
+            <div class="bg-slate-900/80 border border-slate-800 p-4 rounded-xl shadow-lg">
+                <div class="flex justify-between items-start">
+                    <p class="text-xs font-semibold text-slate-400 uppercase">Agent 4: Financial</p>
+                    <i class="fa-solid fa-indian-rupee-sign text-amber-400"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mt-2">₹1.5L Excess</h3>
+                <p class="text-xs text-amber-400 mt-1">⚡ Dyeing Power Optimized</p>
+            </div>
+            <!-- Card 5 -->
+            <div class="bg-slate-900/80 border border-slate-800 p-4 rounded-xl shadow-lg">
+                <div class="flex justify-between items-start">
+                    <p class="text-xs font-semibold text-slate-400 uppercase">Agent 5: Safety</p>
+                    <i class="fa-solid fa-shield-halved text-rose-400"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mt-2">Secured</h3>
+                <p class="text-xs text-rose-400 mt-1">🚨 Chem Mix Handled</p>
+            </div>
+        </div>
+
+        <!-- Charts & Live Feed Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            
+            <!-- Telemetry Chart Column -->
+            <div class="lg:col-span-2 bg-slate-900/80 border border-slate-800 p-5 rounded-2xl shadow-xl flex flex-col justify-between">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-sm font-bold tracking-wide uppercase text-slate-300">Live Factory Telemetry & Vibrations</h2>
+                    <span class="text-xs text-slate-400 bg-slate-800 px-2.5 py-1 rounded">Real-time Stream</span>
+                </div>
+                <div class="relative h-72 w-full">
+                    <canvas id="telemetryChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Live Autonomous Event Stream -->
+            <div class="bg-slate-900/80 border border-slate-800 p-5 rounded-2xl shadow-xl flex flex-col">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-sm font-bold tracking-wide uppercase text-slate-300">Autonomous Actions Log</h2>
+                    <span class="w-2.5 h-2.5 rounded-full bg-indigo-500 animate-ping"></span>
+                </div>
+                <div class="space-y-3 overflow-y-auto max-h-72 pr-1 text-xs">
+                    <div class="p-3 bg-slate-800/60 border-l-2 border-amber-500 rounded-r-lg">
+                        <span class="text-slate-400 block font-mono">14:02:10 - Agent 1</span>
+                        <p class="text-slate-200 mt-0.5">Loom_Machine_03 vibration high (7.8mm/s). Auto-alert triggered.</p>
+                    </div>
+                    <div class="p-3 bg-slate-800/60 border-l-2 border-rose-500 rounded-r-lg">
+                        <span class="text-slate-400 block font-mono">14:02:12 - Agent 2</span>
+                        <p class="text-slate-200 mt-0.5">Batch_102 rejected due to surface flaws. Conveyor diverted.</p>
+                    </div>
+                    <div class="p-3 bg-slate-800/60 border-l-2 border-blue-500 rounded-r-lg">
+                        <span class="text-slate-400 block font-mono">14:02:15 - Agent 3</span>
+                        <p class="text-slate-200 mt-0.5">Machine_Spare_Belts below limit. Purchase order auto-sent.</p>
+                    </div>
+                    <div class="p-3 bg-slate-800/60 border-l-2 border-indigo-500 rounded-r-lg">
+                        <span class="text-slate-400 block font-mono">14:02:18 - Agent 4</span>
+                        <p class="text-slate-200 mt-0.5">Dyeing Section power waste detected. Schedule optimized.</p>
+                    </div>
+                    <div class="p-3 bg-slate-800/60 border-l-2 border-emerald-500 rounded-r-lg">
+                        <span class="text-slate-400 block font-mono">14:02:20 - Agent 5</span>
+                        <p class="text-slate-200 mt-0.5">Chemical Mixing Unit exhaust fans activated automatically.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 py-4 text-center text-xs text-slate-500 mt-auto">
+        MachinaPulse AI Enterprise Architecture &copy; 2026. All Systems Operational.
+    </footer>
+
+    <!-- Chart Script -->
+    <script>
+        const ctx = document.getElementById('telemetryChart').getContext('2d');
+        const telemetryChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00'],
+                datasets: [{
+                    label: 'Machine Vibration Index (mm/s)',
+                    data: [2.1, 2.5, 3.2, 2.8, 4.1, 5.0, 7.8],
+                    borderColor: '#6366f1',
+                    backgroundColor: 'rgba(99, 102, 241, 0.1)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { labels: { color: '#94a3b8', font: { size: 11 } } }
+                },
+                scales: {
+                    x: { ticks: { color: '#64748b' }, grid: { color: '#1e293b' } },
+                    y: { ticks: { color: '#64748b' }, grid: { color: '#1e293b' } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
